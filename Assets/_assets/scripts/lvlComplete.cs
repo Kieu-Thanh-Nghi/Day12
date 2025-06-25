@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class lvlComplete : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Controller ctrler;
+    [SerializeField] Data data;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void clickClaim()
+    {        
+        data.moreFlour(2000);
+        data.moreBread(2000);
+        ctrler.TurnOnMenu(gameObject);
+        Debug.Log("da luu vao data");
     }
 }

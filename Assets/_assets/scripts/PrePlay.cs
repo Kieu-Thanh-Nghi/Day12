@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PrePlay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Controller ctrler;
+    [SerializeField] Data data;
+    [SerializeField] Slider slider;
+    [SerializeField] Text slideText, slideGoalText;
+
+    private void OnEnable()
     {
-        
+        float process = data.ProcessOfCurrentLvl();
+        float goal = data.goalNumberOfCurrentLvl();
+        slider.maxValue = goal;
+        slider.value = process;
+        slideText.text = ctrler.KNumber(process);
+        slideGoalText.text = ctrler.KNumber(goal);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void clickPlay()
     {
-        
+        ctrler.TurnOnGamePlay(gameObject);
     }
 }

@@ -9,19 +9,29 @@ public class Rewards : MonoBehaviour
     [SerializeField] Text textFlour, textWheat, textBread;
     [SerializeField] Controller ctrler;
     [SerializeField] Data data;
-    int clickTimes = 0;
 
-    public void clickCollect()
+    public void clickCollect(int type)
     {
-        if(clickTimes == 2)
+        switch (type)
         {
-            ctrler.TurnOnMenu(gameObject);
-            data.moreBread(textToInt(textBread));
-            data.moreFlour(textToInt(textFlour));
-            data.moreWheat(textToInt(textWheat));
-            Debug.Log("Da nhap vao data");
+            case 1:
+                data.moreFlour(textToInt(textFlour));
+                Debug.Log("Da nhap vao data");
+                break;
+            case 2:
+                data.moreWheat(textToInt(textWheat));
+                Debug.Log("Da nhap vao data");
+                break;
+            case 3:
+                data.moreBread(textToInt(textBread));
+                Debug.Log("Da nhap vao data");
+                break;
         }
-        clickTimes++;
+    }
+
+    public void clickOut()
+    {
+        ctrler.TurnOnMenu(gameObject);
     }
 
     int textToInt(Text t)

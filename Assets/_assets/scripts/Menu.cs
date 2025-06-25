@@ -16,11 +16,11 @@ public class Menu : MonoBehaviour
     }
     public void clkPlay()
     {
-        ctrler.TurnOnPrePlay(gameObject);
+        ctrler.TurnOnPrePlay(gameObject, 2);
     }
     public void clkRate()
     {
-        ctrler.TurnOnRate(gameObject);
+        ctrler.TurnOnRate();
     }
     public void clkDailyRewards()
     {

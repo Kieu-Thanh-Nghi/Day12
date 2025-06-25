@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Controller ctrler;
+    public void clickSettings()
     {
-        
+        Debug.Log("chua co");
     }
-
-    // Update is called once per frame
-    void Update()
+    public void clickResume()
     {
-        
+        gameObject.SetActive(false);
+    }
+    public void clickManu()
+    {
+        ctrler.TurnOnMenu(gameObject, true);
     }
 }

@@ -11,6 +11,15 @@ public class Data : MonoBehaviour
 
     [SerializeField] lvl[] lvls;
 
+    int currentLvl;
+    int currentLvlIndex = 0;
+
+    public void setUpLvl(int lvl)
+    {
+        currentLvl = lvl;
+        currentLvlIndex = 0;
+    }
+
     public int getFlour()
     {
         return flour;
@@ -35,12 +44,34 @@ public class Data : MonoBehaviour
     {
         bread += quatity;
     }
+
+    public int ProcessOfCurrentLvl()
+    {
+        return lvls[currentLvlIndex].processNumber;
+    }
+
+    public void updateProcessOfCurrentLvl(int process)
+    {
+        lvls[currentLvlIndex].processNumber = process;
+    }
+    public int goalNumberOfCurrentLvl()
+    {
+        return lvls[currentLvlIndex].goalNumber;
+    }
 }
 
 [Serializable]
 public struct lvl{
     [SerializeField] int LvlNumber;
-    [SerializeField] int goalNumber;
-    [SerializeField] int processNumber;
+    [SerializeField] public int goalNumber;
+    [SerializeField] public int processNumber;
+    [SerializeField] Phanthuong[] phanThuong;
+}
+
+[Serializable]
+public struct Phanthuong
+{
+    [SerializeField] int type;
+    [SerializeField] int so_lg;
 }
 

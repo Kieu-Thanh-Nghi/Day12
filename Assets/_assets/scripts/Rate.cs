@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Rate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void clickGreat()
     {
-        
+        Debug.Log("This game is great!");
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void clickLater()
     {
-        
+        Debug.Log("ban chua danh gia cho Game");
+        gameObject.SetActive(false);
     }
 }

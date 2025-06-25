@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
     [SerializeField] Pause pause;
     [SerializeField] Menu menu;
     [SerializeField] GamePlay gameplay;
+    [SerializeField] Data data;
     public void TurnOnRewards(GameObject current)
     {
         rewards.gameObject.SetActive(true);
@@ -21,20 +22,19 @@ public class Controller : MonoBehaviour
         lvl_complete.gameObject.SetActive(true);
         current.SetActive(false);
     }
-    public void TurnOnPrePlay(GameObject current)
-    {
+    public void TurnOnPrePlay(GameObject current, int lvlNumber)
+    {        
+        data.setUpLvl(lvlNumber);
         prePlay.gameObject.SetActive(true);
         current.SetActive(false);
     }
-    public void TurnOnRate(GameObject current)
+    public void TurnOnRate()
     {
         rate.gameObject.SetActive(true);
-        current.SetActive(false);
     }
-    public void TurnOnPause(GameObject current)
+    public void TurnOnPause()
     {
         pause.gameObject.SetActive(true);
-        current.SetActive(false);
     }
     public void TurnOnMenu(GameObject current, bool isGamePlayOff = false)
     {
@@ -49,5 +49,18 @@ public class Controller : MonoBehaviour
     {
         gameplay.gameObject.SetActive(true);
         current.SetActive(false);
+    }
+
+    public string KNumber(float process)
+    {
+
+        if (process >= 1000)
+        {
+            return (process / 1000).ToString() + "K";
+        }
+        else
+        {
+            return process.ToString();
+        }
     }
 }
